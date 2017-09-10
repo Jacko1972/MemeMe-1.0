@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 48;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -96,13 +96,12 @@
 				TargetAttributes = {
 					D7043D1D1F65EB540045EF04 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = 43UCP6E9J2;
 						ProvisioningStyle = Automatic;
 					};
 				};
 			};
 			buildConfigurationList = D7043D191F65EB540045EF04 /* Build configuration list for PBXProject "MemeMe 1.0" */;
-			compatibilityVersion = "Xcode 3.2";
+			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
