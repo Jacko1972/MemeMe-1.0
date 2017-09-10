@@ -1,4 +1,4 @@
-# MemeMe-1.0
+# MemeMe 1.0
 Second Project for iOS Nanodegree by Udacity
 
 ## Project Overview
