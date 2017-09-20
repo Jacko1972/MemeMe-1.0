@@ -25,23 +25,27 @@ class MemeMeViewController: UIViewController, UIImagePickerControllerDelegate, U
     override func viewDidLoad() {
         super.viewDidLoad()
         actionButton.isEnabled = false
-        topTextField.delegate = self
-        bottomTextField.delegate = self
-        topTextField.defaultTextAttributes = memeTextAttribs
-        bottomTextField.defaultTextAttributes = memeTextAttribs
-        topTextField.textAlignment = .center
-        bottomTextField.textAlignment = .center
+        setupTextField(topTextField, text: "TOP")
+        setupTextField(bottomTextField, text: "BOTTOM")
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera)
         keyboardNotifications()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         unsubscribeKeyboardNotifications()
     }
     
+    func setupTextField(_ textField: UITextField, text: String) {
+        textField.delegate = self
+        textField.defaultTextAttributes = memeTextAttribs
+        textField.textAlignment = .center
+        textField.text = text
+    }
     
     func keyboardNotifications() {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: .UIKeyboardWillShow, object: nil)
@@ -116,16 +120,20 @@ class MemeMeViewController: UIViewController, UIImagePickerControllerDelegate, U
     }
     
     @IBAction func shareMeme(_ sender: Any) {
-        let meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, originalImage: imageView.image!, memedImage: generateMeme())
-        let controller = UIActivityViewController(activityItems: [meme.memedImage], applicationActivities: nil)
+        let memeImage: UIImage = generateMeme()
+        let controller = UIActivityViewController(activityItems: [memeImage], applicationActivities: nil)
+        controller.completionWithItemsHandler = {( type, ok, items, error ) in
+            if ok {
+                let meme = Meme(topText: self.topTextField.text!, bottomText: self.bottomTextField.text!, originalImage: self.imageView.image!, memedImage: self.generateMeme())
+            }
+        }
         self.present(controller, animated: true, completion: nil)
     }
     
     func generateMeme() -> UIImage {
         // Hide toolbar and navbar
-        topToolbar.isHidden = true
-        bottomToolbar.isHidden = true
         
+        setToolbarState(true)
         // Render view to an image
         UIGraphicsBeginImageContext(self.view.frame.size)
         view.drawHierarchy(in: self.view.frame, afterScreenUpdates: true)
@@ -133,10 +141,14 @@ class MemeMeViewController: UIViewController, UIImagePickerControllerDelegate, U
         UIGraphicsEndImageContext()
         
         // Show toolbar and navbar
-        topToolbar.isHidden = false
-        bottomToolbar.isHidden = false
+        setToolbarState(false)
         
         return memedImage
+    }
+    
+    func setToolbarState(_ hidden: Bool) {
+        topToolbar.isHidden = hidden
+        bottomToolbar.isHidden = hidden
     }
     
     let memeTextAttribs: [String:Any] = [
@@ -144,12 +156,5 @@ class MemeMeViewController: UIViewController, UIImagePickerControllerDelegate, U
         NSForegroundColorAttributeName: UIColor.white,
         NSFontAttributeName: UIFont(name: "Impact", size: 40)!,
         NSStrokeWidthAttributeName: -2]
-    
-    struct Meme {
-        var topText: String
-        var bottomText: String
-        var originalImage: UIImage
-        var memedImage: UIImage
-    }
 }
 
