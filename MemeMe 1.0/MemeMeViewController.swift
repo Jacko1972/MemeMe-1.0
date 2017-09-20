@@ -133,7 +133,6 @@ class MemeMeViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     func generateMeme() -> UIImage {
         // Hide toolbar and navbar
-        
         setToolbarState(true)
         // Render view to an image
         UIGraphicsBeginImageContext(self.view.frame.size)
@@ -149,7 +148,6 @@ class MemeMeViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     func saveMeme() {
         let meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, originalImage: imageView.image!, memedImage: generateMeme())
-        print("remove annoying compiler warning 😡 \(meme.topText)")
     }
     
     func setToolbarState(_ hidden: Bool) {
