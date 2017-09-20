@@ -105,11 +105,7 @@ class MemeMeViewController: UIViewController, UIImagePickerControllerDelegate, U
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
         imagePicker.allowsEditing = true
-        if button.tag == 0 {
-            imagePicker.sourceType = .camera
-        } else {
-            imagePicker.sourceType = .photoLibrary
-        }
+        imagePicker.sourceType = button.tag == 0 ? .camera : .photoLibrary
         present(imagePicker, animated: true, completion: nil)
     }
     
@@ -147,7 +143,7 @@ class MemeMeViewController: UIViewController, UIImagePickerControllerDelegate, U
     }
     
     func saveMeme() {
-        let meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, originalImage: imageView.image!, memedImage: generateMeme())
+        // let meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, originalImage: imageView.image!, memedImage: generateMeme())
     }
     
     func setToolbarState(_ hidden: Bool) {
