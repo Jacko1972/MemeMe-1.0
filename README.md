@@ -17,3 +17,7 @@ MemeMe covers many of the major UI components found in essentially every app. It
 * Becoming comfortable using a variety of UIControls and stock view controllers is an essential step in becoming an iOS developer.
 * Understanding UIKit allows a developer to make educated assumptions about the architecture of apps that they use.
 * Mastering UKit fundamentals frees a developer up to learn model-oriented skills like networking and persistence.
+
+## Credits
+* App Icon, Code for Meme image generation from Udacity
+* Impact font from my Mac, Licence is Free
