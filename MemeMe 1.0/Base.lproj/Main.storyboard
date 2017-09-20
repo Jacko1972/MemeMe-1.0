@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -19,14 +19,14 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jXa-Ra-6Yt">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             </imageView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5tP-V6-QtT" userLabel="Top Toolbar">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                 <items>
                                     <barButtonItem systemItem="action" id="Wxc-xV-OZD">
                                         <connections>
@@ -42,7 +42,7 @@
                                 </items>
                             </toolbar>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QSl-Kb-BtK" userLabel="Bottom Toolbar">
-                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="692" width="414" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="39b-hT-rcv"/>
                                 </constraints>
@@ -63,13 +63,13 @@
                                 </items>
                             </toolbar>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="TOP" textAlignment="center" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="BaV-Jv-quQ" userLabel="Top Text Field">
-                                <rect key="frame" x="0.0" y="94" width="375" height="17"/>
+                                <rect key="frame" x="0.0" y="94" width="414" height="17"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="done"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="BOTTOM" textAlignment="center" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="yqh-kp-niW">
-                                <rect key="frame" x="0.0" y="556" width="375" height="17"/>
+                                <rect key="frame" x="0.0" y="625" width="414" height="17"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="done"/>
@@ -90,9 +90,11 @@
                             <constraint firstAttribute="trailing" secondItem="QSl-Kb-BtK" secondAttribute="trailing" id="WLN-4J-0rP"/>
                             <constraint firstItem="BaV-Jv-quQ" firstAttribute="top" secondItem="5tP-V6-QtT" secondAttribute="bottom" constant="50" id="Wmx-I2-CMM">
                                 <variation key="heightClass=compact-widthClass=compact" constant="25"/>
+                                <variation key="heightClass=compact-widthClass=regular" constant="25"/>
                             </constraint>
                             <constraint firstItem="QSl-Kb-BtK" firstAttribute="top" secondItem="yqh-kp-niW" secondAttribute="bottom" constant="50" id="eNm-b7-H8h">
                                 <variation key="heightClass=compact-widthClass=compact" constant="25"/>
+                                <variation key="heightClass=compact-widthClass=regular" constant="25"/>
                             </constraint>
                             <constraint firstAttribute="trailing" secondItem="yqh-kp-niW" secondAttribute="trailing" id="ftQ-yJ-ruq"/>
                             <constraint firstItem="5tP-V6-QtT" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="rMl-4g-e0y"/>

@@ -114,6 +114,7 @@ class MemeMeViewController: UIViewController, UIImagePickerControllerDelegate, U
     }
     
     @IBAction func cancelMeme(_ sender: Any) {
+        actionButton.isEnabled = false
         imageView.image = nil
         topTextField.text = "TOP"
         bottomTextField.text = "BOTTOM"
@@ -148,6 +149,7 @@ class MemeMeViewController: UIViewController, UIImagePickerControllerDelegate, U
     
     func saveMeme() {
         let meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, originalImage: imageView.image!, memedImage: generateMeme())
+        print("remove annoying compiler warning 😡 \(meme.topText)")
     }
     
     func setToolbarState(_ hidden: Bool) {
