@@ -124,7 +124,7 @@ class MemeMeViewController: UIViewController, UIImagePickerControllerDelegate, U
         let controller = UIActivityViewController(activityItems: [memeImage], applicationActivities: nil)
         controller.completionWithItemsHandler = {( type, ok, items, error ) in
             if ok {
-                let meme = Meme(topText: self.topTextField.text!, bottomText: self.bottomTextField.text!, originalImage: self.imageView.image!, memedImage: self.generateMeme())
+                self.saveMeme()
             }
         }
         self.present(controller, animated: true, completion: nil)
@@ -144,6 +144,10 @@ class MemeMeViewController: UIViewController, UIImagePickerControllerDelegate, U
         setToolbarState(false)
         
         return memedImage
+    }
+    
+    func saveMeme() {
+        let meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, originalImage: imageView.image!, memedImage: generateMeme())
     }
     
     func setToolbarState(_ hidden: Bool) {
